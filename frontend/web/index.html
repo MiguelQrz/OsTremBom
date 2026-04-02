@@ -13,10 +13,10 @@
   <header class="navbar">
     <div class="logo">⚡ OS TREM DE BH</div>
     <nav class="nav-links">
-      <a href="index.html">Início</a>
-      <a href="locais.html">Locais</a>
-      <a href="semanal.html">Semanal</a>
-      <a href="perfil.html">Perfil</a>
+      <a href="#">Início</a>
+      <a href="#">Locais</a>
+      <a href="#">Semanal</a>
+      <a href="#">Perfil</a>
     </nav>
     <div class="nav-actions">
       <button class="btn-login">Entrar</button>
@@ -76,7 +76,7 @@
       </div>
     </section>
 
-    <!-- POINTS SECTION - CARROSSEL -->
+    <!-- Points Section -->
     <section class="Sessao03">
       <div class="section-header">
         <span class="section-badge">Explorar</span>
@@ -84,21 +84,74 @@
         <p>Os lugares mais amados pela comunidade</p>
       </div>
 
-      <!-- 
-        ==================================================
-        CARROSSEL DE LOCAIS
-        ==================================================
-        ID: carrossel-locais
-        ==================================================
-      -->
+      <div class="Carrossel">
+        <a href="local.html?id=1" class="Card">
+          <div class="card-image">
+            <img src="img/local1.jpg" alt="Rosas Rosas">
+            <div class="card-overlay"></div>
+          </div>
+          <div class="card-content">
+            <div class="card-category">🌿 Natureza</div>
+            <h3>Rosas Rosas</h3>
+            <p>Delicadas e clássicas, um verdadeiro jardim encantado</p>
+            <div class="card-stats">
+              <span>❤️ 234</span>
+              <span>💬 45</span>
+            </div>
+          </div>
+        </a>
 
-      <div class="Carrossel" id="carrossel-locais">
+        <a href="local.html?id=2" class="Card">
+          <div class="card-image">
+            <img src="img/local2.jpg" alt="Rosa Branca">
+            <div class="card-overlay"></div>
+          </div>
+          <div class="card-content">
+            <div class="card-category">🌸 Flores</div>
+            <h3>Rosa Branca</h3>
+            <p>Pureza e elegância em cada pétala</p>
+            <div class="card-stats">
+              <span>❤️ 189</span>
+              <span>💬 32</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="local.html?id=3" class="Card">
+          <div class="card-image">
+            <img src="img/local3.jpg" alt="Flores Suaves">
+            <div class="card-overlay"></div>
+          </div>
+          <div class="card-content">
+            <div class="card-category">🎨 Arte</div>
+            <h3>Flores Suaves</h3>
+            <p>Toque romântico que inspira</p>
+            <div class="card-stats">
+              <span>❤️ 312</span>
+              <span>💬 67</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="local.html?id=4" class="Card">
+          <div class="card-image">
+            <img src="img/local4.jpg" alt="Tulipas">
+            <div class="card-overlay"></div>
+          </div>
+          <div class="card-content">
+            <div class="card-category">🌷 Moderno</div>
+            <h3>Tulipas</h3>
+            <p>Minimalismo e sofisticação</p>
+            <div class="card-stats">
+              <span>❤️ 156</span>
+              <span>💬 28</span>
+            </div>
+          </div>
+        </a>
       </div>
-
     </section>
 
-    <!-- FEED SECTION - COMUNIDADE -->
-
+    <!-- Feed Section (Novo) -->
     <section class="Sessao04">
       <div class="section-header">
         <span class="section-badge">Atualizações</span>
@@ -106,22 +159,56 @@
         <p>O que está rolando por aqui</p>
       </div>
       
-      <!-- 
-        ==================================================
-        FEED DE POSTAGENS
-        ==================================================
-        ID: feed-container
-        ==================================================
-      -->
+      <div class="feed-grid">
+        <div class="feed-card">
+          <div class="feed-user">
+            <div class="user-avatar">M</div>
+            <div class="user-info">
+              <h4>Maria Silva</h4>
+              <span>2h atrás</span>
+            </div>
+          </div>
+          <p class="feed-content">Acabei de conhecer o Mercado Central, que lugar incrível! A culinária mineira é sensacional 😍</p>
+          <div class="feed-actions">
+            <button class="feed-like">❤️ 45</button>
+            <button class="feed-comment">💬 12</button>
+          </div>
+        </div>
 
-      <div class="feed-grid" id="feed-container">
+        <div class="feed-card">
+          <div class="feed-user">
+            <div class="user-avatar">J</div>
+            <div class="user-info">
+              <h4>João Pedro</h4>
+              <span>5h atrás</span>
+            </div>
+          </div>
+          <p class="feed-content">Praça do Papa tem a melhor vista de BH! Quem mais ama esse lugar? 🌆</p>
+          <div class="feed-actions">
+            <button class="feed-like">❤️ 89</button>
+            <button class="feed-comment">💬 23</button>
+          </div>
+        </div>
+
+        <div class="feed-card">
+          <div class="feed-user">
+            <div class="user-avatar">A</div>
+            <div class="user-info">
+              <h4>Ana Costa</h4>
+              <span>1 dia atrás</span>
+            </div>
+          </div>
+          <p class="feed-content">Indicação de café: Café com Letras. Ambiente perfeito para ler e tomar um café especial! ☕📚</p>
+          <div class="feed-actions">
+            <button class="feed-like">❤️ 156</button>
+            <button class="feed-comment">💬 34</button>
+          </div>
+        </div>
       </div>
-
     </section>
   </main>
 
   <script>
-    // Função para toggle do menu mobile
     function toggleMenu() {
       const sidebar = document.getElementById("sidebar");
       const overlay = document.getElementById("overlay");
