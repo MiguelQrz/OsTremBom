@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TremBomApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+71e18123268b9c98ea5554245f4b1769192d87e0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0321c74ebdb2e960915ab599b95958202e4af15e")]
 [assembly: System.Reflection.AssemblyProductAttribute("TremBomApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TremBomApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

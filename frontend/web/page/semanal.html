@@ -14,11 +14,13 @@
         <div class="logo">⚡ OS TREM DE BH</div>
         <nav class="nav-links">
             <a href="../index.html">Início</a>
-            <a href="../page/locais.html">Locais</a>
-            <a href="../page/semanal.html">Semanal</a>
-            <a href="../page/perfil.html">Perfil</a>
+            <a href="locais.html">Locais</a>
+            <a href="semanal.html">Semanal</a>
+            <a href="login.html" id="linkPerfilSemanal">Perfil</a>
         </nav>
         <div class="nav-actions">
+            <button class="btn-login" id="btnLoginHeaderSemanal">Entrar</button>
+            <button class="btn-perfil" id="btnPerfilHeaderSemanal" style="display: none;">👤 Perfil</button>
             <div class="menu-btn" onclick="toggleMenu()">☰</div>
         </div>
     </header>
@@ -31,12 +33,12 @@
         </div>
         <nav class="sidebar-nav">
             <a href="../index.html">Início</a>
-            <a href="../page/locais.html">Locais</a>
-            <a href="../page/semanal.html">Semanal</a>
-            <a href="../page/perfil.html">Perfil</a>
+            <a href="locais.html">Locais</a>
+            <a href="semanal.html">Semanal</a>
+            <a href="login.html" id="sidebarLinkPerfilSemanal">Perfil</a>
         </nav>
         <div class="sidebar-footer">
-            <button class="btn-logout">Sair</button>
+            <button class="btn-logout" id="btnLogoutSidebarSemanal" style="display: none;">Sair</button>
         </div>
     </div>
 
@@ -44,7 +46,6 @@
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
     <main class="Conteudo">
-        <!-- SESSÃO 01 - CARROSSEL -->
         <section class="Sessao01">
             <div class="section-header">
                 <h2>Points</h2>
@@ -56,15 +57,13 @@
             </div>
         </section>
 
-        <!-- SESSÃO 02 - PUBLICAÇÕES -->
-        <section class="SessaoPublicacoes">
+        <section class="SessaoPublicacoes" id="sessaoPublicacoes">
             <div class="header-publicacoes">
                 <h3>PUBLICAÇÕES</h3>
-                <button class="btn-abrir-modal" onclick="toggleModalPublicacao()">+</button>
+                <button class="btn-abrir-modal" id="btnAbrirModalPublicacao" onclick="toggleModalPublicacao()">+</button>
             </div>
             <hr class="linha-separadora">
             
-            <!-- Container para as publicações -->
             <div class="publicacoes-container" id="publicacoes-container">
                 <!-- As publicações serão inseridas aqui via JavaScript -->
             </div>
@@ -73,52 +72,60 @@
 
     <!-- MODAL DE PUBLICAÇÃO -->
     <div class="modal-overlay" id="modalPublicacao">
-        <div class="modal-content">
+        <div class="modal-content" id="modalPublicacaoContent">
             <div class="modal-header">
-                <h2>Nova Publicação</h2>
-                <span class="btn-fechar" onclick="toggleModalPublicacao()">✕</span>
+                <h2 id="modalTitulo">Nova Publicação</h2>
+                <span class="btn-fechar" id="btnFecharModal" onclick="toggleModalPublicacao()">✕</span>
             </div>
             
-            <form class="form-publicacao" id="formPublicacao">
-                <label for="local">Onde você foi?</label>
-                <select id="local" name="local" required>
+            <form class="form-publicacao" id="formPublicacao" enctype="multipart/form-data">
+                <input type="hidden" id="publicacaoLocalId" name="local_id" value="">
+                
+                <label for="publicacaoLocal">Onde você foi?</label>
+                <select id="publicacaoLocal" name="local" required>
                     <option value="">Selecione um local</option>
-                    <option value="Mercado Central">Mercado Central</option>
-                    <option value="Lagoa da Pampulha">Lagoa da Pampulha</option>
-                    <option value="Praça da Liberdade">Praça da Liberdade</option>
-                    <option value="Savassi">Savassi</option>
-                    <option value="Mineirão">Mineirão</option>
-                    <option value="Parque Municipal">Parque Municipal</option>
+                    <option value="1">Mercado Central</option>
+                    <option value="2">Lagoa da Pampulha</option>
+                    <option value="3">Praça da Liberdade</option>
+                    <option value="4">Savassi</option>
+                    <option value="5">Mineirão</option>
+                    <option value="6">Parque Municipal</option>
                 </select>
 
-                <label for="fotos">Fotos do "trem":</label>
-                <input type="file" id="fotos" name="fotos" accept="image/*" multiple>
+                <label for="publicacaoFotos">Fotos do "trem":</label>
+                <input type="file" id="publicacaoFotos" name="fotos" accept="image/jpeg,image/png,image/gif,image/webp" multiple>
+                <small class="input-hint">Formatos: JPG, PNG, GIF, WEBP - Máx 5MB por foto</small>
 
-                <label for="feedback">O que achou?</label>
-                <textarea id="feedback" rows="4" placeholder="Conte como foi sua experiência..." required></textarea>
+                <label for="publicacaoFeedback">O que achou?</label>
+                <textarea id="publicacaoFeedback" name="feedback" rows="4" placeholder="Conte como foi sua experiência..." required></textarea>
 
                 <label>Avaliação:</label>
-                <div class="estrelas">
+                <div class="estrelas" id="publicacaoRating">
                     <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
                     <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
                     <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
                     <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
                     <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
                 </div>
+                
+                <input type="hidden" id="publicacaoRatingSelecionado" name="rating_selecionado" value="">
 
-                <button type="submit" class="btn-publicar">Publicar</button>
+                <button type="submit" class="btn-publicar" id="btnPublicarSubmit">Publicar</button>
             </form>
         </div>
     </div>
 
     <!-- MODAL DE VISUALIZAÇÃO DE FOTO -->
     <div class="foto-modal" id="fotoModal" onclick="fecharFotoModal()">
-        <div class="foto-modal-content">
-            <button class="fechar-foto" onclick="fecharFotoModal()">✕</button>
+        <div class="foto-modal-content" id="fotoModalContent">
+            <button class="fechar-foto" id="btnFecharFoto" onclick="fecharFotoModal()">✕</button>
             <img id="fotoModalImg" src="" alt="Foto em destaque">
         </div>
     </div>
 
+    <!-- Scripts - ORDEM CORRETA -->
+    <script src="../script/api.js"></script>
+    <script src="../script/auth.js"></script>
     <script src="../script/semanal.js"></script>
 </body>
 </html>
