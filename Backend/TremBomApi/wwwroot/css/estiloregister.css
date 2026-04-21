@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center; 
+  align-items: center;      
+  min-height: 100vh;
+}
+.register-box {
+  background: white;
+  min-height: 100vh;
+  align-self: center;
+  height: 100%; 
+  width: 25%;
+  border-radius: 0;
+  text-align: top;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.btn-voltar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; 
+  color: white;
+  border: none;
+  background-color: RGB(211, 211, 211);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  transition: 0.2s ease;
+}
+
+#logo {
+    width: 32px; height: 32px; margin-top: 14px;
+}
+
+.btn-voltar:hover {
+  background-color: grey;
+}
+.btn-login {
+    background: var(--primary-teal);
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.btn-login:hover  {
+    background: var(--primary-dark-blue);
+}
+.input {
+    margin-top: 4px;
+}
+.input-row {
+  display: flex;
+  gap: 12px; 
+}
+h2 {
+    font-size: 26px;
+}
+#subtitulo-p {
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+.input-row input {
+  flex: 1;
+}
+
+.subtitulo {
+  font-weight: 600;
+  font-size: 17px;
+  color: black;
+  margin: 12px 0 4px;
+}
