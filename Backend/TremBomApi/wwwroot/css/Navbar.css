@@ -10,7 +10,6 @@
     --primary-green: #069E6E;
     --primary-blue: #3E7996;
     --primary-dark: #2D2E47;
-    --primary-teal: #00BAB4;
     --primary-dark-blue: #2F6C82;
     --white-alpha: rgba(255, 255, 255, 0.85);
     --white-alpha-hover: rgba(255, 255, 255, 0.95);
@@ -57,7 +56,7 @@ body::before {
 }
 
 .btn-login {
-  background: var(--primary-teal);
+  background: var(--primary-green);
   border: none;
   color: white;
   font-size: 16px;

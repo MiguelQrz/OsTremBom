@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Os Trem de BH</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/estiloregister.css">
+    <link rel="stylesheet" href="/css/estilologin.css">
+    <link rel="stylesheet" href="/css/estilopage.css">
+    <style>
+            .tags {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                }
+
+            .tag {
+                padding: 8px 16px;
+                border-radius: 20px;
+                border: 2px solid #069E6E;
+                background: transparent;
+                color: #069E6E;
+                cursor: pointer;
+                transition: 0.2s;
+                font-weight: 500;
+                }
+
+            .tag:hover {
+                background: #069E6E;
+                color: white;
+                }
+
+            .tag.selected {
+                background: #069E6E;
+                color: white;
+                box-shadow: 0 0 8px rgba(6, 158, 110, 0.5);
+                }
+            .photo-upload {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                }
+
+            .photo-upload img {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                object-fit: cover;
+                cursor: pointer;
+                border: 1px solid var(--primary-green);
+                transition: 0.3s;
+                }
+
+            .photo-upload img:hover {
+                opacity: 0.8;
+                }
+            #foto-input {
+                display: none;
+                }
+    </style>
+</head>
+<body>
+    <div class="register-box">
+        <button class="btn-voltar" onclick="window.location.href='/index'">&lt;</button>
+        <img src="/img/android-chrome-192x192.png" id="logo" alt="OS TREM DE BH - Logo" class="logo-register">
+        <h2>Finalize sua conta</h2>
+        <p id="subtitulo-p">Preencha alguns detalhes abaixo e finaliza a criação da sua <span class="teal">conta</span>.</p>
+        <p id="error"></p>
+        <p class="subtitulo">Foto de perfil</p>
+        <form id="registro-form">
+            <div class="photo-upload">
+            <label for="foto-input">
+                <img id="preview" src="/img/default-avatar.jpg" alt="Foto de perfil">
+            </label>
+            <input type="file" id="foto-input" accept="image/*">
+            </div>
+            <div class="interesses">
+            <p class="subtitulo">Interesses</p>
+
+            <div class="tags">
+                <button type="button" class="tag">🌍 Cultura</button>
+                <button type="button" class="tag">🏛️ História</button>
+                <button type="button" class="tag">🤖 Tecnologia</button>
+                <button type="button" class="tag">🦒 Animais</button>
+                <button type="button" class="tag">⛪ Religião</button>
+                <button type="button" class="tag">👪 Familia</button>
+                <button type="button" class="tag">🎉 Jovem</button>
+            </div>
+            <button class="btn-login" id="btn-register" type="submit">Registrar</button>
+        </form>
+    </div>
+    <script src="/script/register.js"></script>
+    <script src="/script/register2.js"></script>
+</body>
+</html>
