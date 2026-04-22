@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+}
+.content-left {
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+#esqueceu-senha {
+    display: block;
+    margin-top: 14px;
+    font-size: 14px;
+    color: #1877f2;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+#divisor{
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #dddfe2;
+}
+#btn-new {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: white;
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+    margin-top: 30%;
+    border-radius: 100px;
+    font-size: 15px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+#btn-new:hover {
+    background-color: var(--primary-dark-blue);
+    color: white;
+}
+
+.content-left h1 {
+  font-size: 32px;
+  margin-bottom: 100px;
+  margin-left: 40px;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.teal {
+    color: var(--primary-teal);
+}
+#titulo-login {
+    font-size: 24px;
+    margin-bottom: 14px;
+    text-align: left;
+}
+.btn-login {
+  margin-top: 14px;
+}
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border: 1px solid #ccd0d5;
+  border-radius: 20px;
+  box-sizing: border-box;
+
+  font-size: 15px;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input::placeholder {
+  color: #8a8d91;
+}
+
+.input:focus {
+  border-color: var(--primary-teal);
+  box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.15);
+}
+
+.input:hover {
+  border-color: #b0b3b8;
+}
+
+.input.error {
+  border-color: #e53935;
+  background-color: #fff5f5;
+}
+
+.input:disabled {
+  background-color: #f0f2f5;
+  cursor: not-allowed;
+}
+
+.login-container {
+  display: flex;
+  min-height: calc(100vh - 80px);
+  align-items: stretch; 
+  background-color: #f0f2f5;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-right {
+  flex: 0 0 400px;
+  display: flex;
+}
+
+.card-login {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%; 
+  border-radius: 0;
+  box-shadow: -2px 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+input {
+  width: 100%;
+  margin: 5% 0;
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  box-sizing: border-box; 
+}
+
+
+@media (max-width: 768px) {
+  
+  .login-container {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .content-left {
+    display: none;
+  }
+
+  .form-right {
+    flex: none;
+    width: 100%;
+  }
+
+  .card-login {
+    height: auto;
+    padding: 24px 16px;
+    box-shadow: none; 
+  }
+
+  #titulo-login {
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .input {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  #btn-new {
+    margin-top: 20px;
+    padding: 12px;
+  }
+
+  #esqueceu-senha {
+    font-size: 13px;
+  }
+}

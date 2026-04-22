@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+/*using Microsoft.AspNetCore.Mvc;
 using TremBomApi.Models;
 using TremBomApi.Services;
 
@@ -99,4 +99,4 @@ namespace TremBomApi.Controllers
             return Ok(ApiResponse<UsuarioResponse>.Ok(usuario));
         }
     }
-}
+}*/

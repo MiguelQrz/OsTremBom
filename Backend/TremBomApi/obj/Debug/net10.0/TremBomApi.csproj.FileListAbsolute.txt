@@ -1,9 +1,0 @@
-C:\Users\suporteti\Documents\OsTremBom\Backend\TremBomApi\obj\Debug\net10.0\TremBomApi.csproj.AssemblyReference.cache
-C:\Users\suporteti\Documents\OsTremBom\Backend\TremBomApi\obj\Debug\net10.0\rpswa.dswa.cache.json
-C:\Users\suporteti\Documents\OsTremBom\Backend\TremBomApi\obj\Debug\net10.0\TremBomApi.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\suporteti\Documents\OsTremBom\Backend\TremBomApi\obj\Debug\net10.0\TremBomApi.AssemblyInfoInputs.cache
-C:\Users\suporteti\Documents\OsTremBom\Backend\TremBomApi\obj\Debug\net10.0\TremBomApi.AssemblyInfo.cs
-C:\Users\suporteti\Documents\OsTremBom\Backend\TremBomApi\obj\Debug\net10.0\TremBomApi.csproj.CoreCompileInputs.cache
-C:\Users\suporteti\Documents\OsTremBom\Backend\TremBomApi\obj\Debug\net10.0\TremBomApi.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\suporteti\Documents\OsTremBom\Backend\TremBomApi\obj\Debug\net10.0\TremBomApi.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\suporteti\Documents\OsTremBom\Backend\TremBomApi\obj\Debug\net10.0\TremBomApi.sourcelink.json

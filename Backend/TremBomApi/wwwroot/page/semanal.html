@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semanal - Os Trem de BH</title>
+    <link rel="stylesheet" href="../css/Navbar.css">
+    <link rel="stylesheet" href="../css/estilosemanal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">⚡ OS TREM DE BH</div>
+        <nav class="nav-links">
+            <a href="../index.html">Início</a>
+            <a href="locais.html">Locais</a>
+            <a href="semanal.html">Semanal</a>
+            <a href="login.html" id="linkPerfilSemanal">Perfil</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="btn-login" id="btnLoginHeaderSemanal">Entrar</button>
+            <button class="btn-perfil" id="btnPerfilHeaderSemanal" style="display: none;">👤 Perfil</button>
+            <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="close-btn" onclick="toggleMenu()">✕</div>
+            <div class="sidebar-logo">OS TREM DE BH</div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="../index.html">Início</a>
+            <a href="locais.html">Locais</a>
+            <a href="semanal.html">Semanal</a>
+            <a href="login.html" id="sidebarLinkPerfilSemanal">Perfil</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="btn-logout" id="btnLogoutSidebarSemanal" style="display: none;">Sair</button>
+        </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <main class="Conteudo">
+        <section class="Sessao01">
+            <div class="section-header">
+                <h2>Points</h2>
+                <p>Os lugares mais amados pela comunidade</p>
+            </div>
+
+            <div class="Carrossel" id="carrossel-locais">
+                <!-- Os cards serão inseridos aqui via JavaScript -->
+            </div>
+        </section>
+
+        <section class="SessaoPublicacoes" id="sessaoPublicacoes">
+            <div class="header-publicacoes">
+                <h3>PUBLICAÇÕES</h3>
+                <button class="btn-abrir-modal" id="btnAbrirModalPublicacao" onclick="toggleModalPublicacao()">+</button>
+            </div>
+            <hr class="linha-separadora">
+            
+            <div class="publicacoes-container" id="publicacoes-container">
+                <!-- As publicações serão inseridas aqui via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL DE PUBLICAÇÃO -->
+    <div class="modal-overlay" id="modalPublicacao">
+        <div class="modal-content" id="modalPublicacaoContent">
+            <div class="modal-header">
+                <h2 id="modalTitulo">Nova Publicação</h2>
+                <span class="btn-fechar" id="btnFecharModal" onclick="toggleModalPublicacao()">✕</span>
+            </div>
+            
+            <form class="form-publicacao" id="formPublicacao" enctype="multipart/form-data">
+                <input type="hidden" id="publicacaoLocalId" name="local_id" value="">
+                
+                <label for="publicacaoLocal">Onde você foi?</label>
+                <select id="publicacaoLocal" name="local" required>
+                    <option value="">Selecione um local</option>
+                    <option value="1">Mercado Central</option>
+                    <option value="2">Lagoa da Pampulha</option>
+                    <option value="3">Praça da Liberdade</option>
+                    <option value="4">Savassi</option>
+                    <option value="5">Mineirão</option>
+                    <option value="6">Parque Municipal</option>
+                </select>
+
+                <label for="publicacaoFotos">Fotos do "trem":</label>
+                <input type="file" id="publicacaoFotos" name="fotos" accept="image/jpeg,image/png,image/gif,image/webp" multiple>
+                <small class="input-hint">Formatos: JPG, PNG, GIF, WEBP - Máx 5MB por foto</small>
+
+                <label for="publicacaoFeedback">O que achou?</label>
+                <textarea id="publicacaoFeedback" name="feedback" rows="4" placeholder="Conte como foi sua experiência..." required></textarea>
+
+                <label>Avaliação:</label>
+                <div class="estrelas" id="publicacaoRating">
+                    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                </div>
+                
+                <input type="hidden" id="publicacaoRatingSelecionado" name="rating_selecionado" value="">
+
+                <button type="submit" class="btn-publicar" id="btnPublicarSubmit">Publicar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE VISUALIZAÇÃO DE FOTO -->
+    <div class="foto-modal" id="fotoModal" onclick="fecharFotoModal()">
+        <div class="foto-modal-content" id="fotoModalContent">
+            <button class="fechar-foto" id="btnFecharFoto" onclick="fecharFotoModal()">✕</button>
+            <img id="fotoModalImg" src="" alt="Foto em destaque">
+        </div>
+    </div>
+
+    <!-- Scripts - ORDEM CORRETA -->
+    <script src="../script/api.js"></script>
+    <script src="../script/auth.js"></script>
+    <script src="../script/semanal.js"></script>
+</body>
+</html>

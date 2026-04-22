@@ -1,3 +1,4 @@
+/*
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TremBomApi.Models;
@@ -59,4 +60,4 @@ namespace TremBomApi.Controllers
             return Ok(resultado);
         }
     }
-}
+}*/

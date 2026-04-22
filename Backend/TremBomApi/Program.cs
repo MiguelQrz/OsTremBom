@@ -1,13 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
 using System.Text;
-using TremBomApi.Data;
-using TremBomApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
+/*
 // CORS
 builder.Services.AddCors(options =>
 {
@@ -45,12 +42,15 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // Injeção de Dependências
 builder.Services.AddScoped<IAuthService, AuthService>();
-
+*/
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddScoped<IPublicacaoService, PublicacaoService>();
+//builder.Services.AddScoped<IPublicacaoService, PublicacaoService>();
+/* 
+Swagger não é funcional para nós, necessitamos de uma API em produção, e o Swagger é mais recomendado para APIs em desenvolvimento ou para documentação interna. 
+Para uma API em produção, é melhor focar em uma documentação clara e acessível, como um README detalhado ou uma página de documentação dedicada, que pode ser hospedada junto com a API ou em um serviço de documentação online. 
+Isso garante que os usuários da API tenham acesso às informações necessárias sem expor detalhes técnicos ou ferramentas de desenvolvimento que podem não ser relevantes para eles.
 
-// Swagger
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -85,7 +85,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-var app = builder.Build();
+
 
 if (app.Environment.IsDevelopment())
 {
@@ -95,14 +95,19 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "TREM BOM API V1");
     });
 }
-
+*/
+builder.Services.AddDirectoryBrowser();
+var app = builder.Build();
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
+
+app.UseRouting();
+
 app.UseCors("AllowFrontend");
 
-app.UseAuthentication();
-app.UseAuthorization();
-
 app.MapControllers();
+
+app.MapFallbackToFile("index.html");
 
 app.Run();
