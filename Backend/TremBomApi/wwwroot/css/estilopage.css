@@ -1,8 +1,11 @@
-/* VARIÁVEIS DE CORES */
+/* ==========================================================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GLOBAIS
+   ========================================================================== */
 :root {
     --primary-green: #069E6E;
     --primary-blue: #3E7996;
     --primary-dark: #2D2E47;
+    --primary-teal: #00BAB4;
     --primary-dark-blue: #2F6C82;
     --white-alpha: rgba(255, 255, 255, 0.92);
     --white-alpha-hover: rgba(255, 255, 255, 0.98);
@@ -11,7 +14,7 @@
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* CONTEÚDO PRINCIPAL - OCUPA A PÁGINA INTEIRA */
+/* Estrutura base do conteúdo */
 .Conteudo {
     width: 100%;
     margin: 0;
@@ -23,19 +26,9 @@
     z-index: 1;
 }
 
-/* SESSÃO 01 - HERO COM FOTO CENTRALIZADA */
-.Sessao01 {
-    width: 100%;
-    min-height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 48px;
-    background: var(--white-alpha);
-    padding: 60px 24px;
-}
-
+/* ==========================================================================
+   2. NAVBAR E LOGO
+   ========================================================================== */
 .logo {
     display: flex;      
     align-items: center; 
@@ -46,6 +39,21 @@
     width: 50px;
     height: 50px;
     object-fit: cover;
+}
+
+/* ==========================================================================
+   3. SESSÃO 01 - HERO (DESTAQUE PRINCIPAL)
+   ========================================================================== */
+.Sessao01 {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    background: var(--white-alpha);
+    padding: 60px 24px;
 }
 
 .hero-content {
@@ -146,7 +154,9 @@
     transform: scale(1.02);
 }
 
-/* SESSÃO 02 - QUOTE */
+/* ==========================================================================
+   4. SESSÃO 02 - QUOTE (IDENTIDADE)
+   ========================================================================== */
 .Sessao02 {
     width: 100%;
     text-align: center;
@@ -217,7 +227,9 @@
     box-shadow: 0 6px 20px rgba(6, 158, 110, 0.3);
 }
 
-/* SESSÃO 03 - POINTS */
+/* ==========================================================================
+   5. SESSÃO 03 - CARROSSEL DE POINTS (DADOS DINÂMICOS)
+   ========================================================================== */
 .Sessao03 {
     width: 100%;
     background: #f7fafc;
@@ -254,46 +266,35 @@
     color: #718096;
 }
 
-/* CARROSSEL */
+/* Configuração do Carrossel */
 .Carrossel {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     gap: 24px;
     overflow-x: auto;
-    padding: 8px 4px 24px 4px;
+    padding: 10px 4px 30px 4px;
+    scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
-    scrollbar-width: thin;
+    -ms-overflow-style: none;  /* IE/Edge */
+    scrollbar-width: none;     /* Firefox */
 }
 
 .Carrossel::-webkit-scrollbar {
-    height: 6px;
+    display: none; /* Esconde barra no Chrome/Safari */
 }
 
-.Carrossel::-webkit-scrollbar-track {
-    background: #e2e8f0;
-    border-radius: 10px;
-}
-
-.Carrossel::-webkit-scrollbar-thumb {
-    background: #cbd5e0;
-    border-radius: 10px;
-}
-
-.Carrossel::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-green);
-}
-
-/* CARDS */
+/* Estilo do Card individual */
 .Card {
-    min-width: 280px;
-    flex-shrink: 0;
-    text-decoration: none;
+    min-width: 300px;
     background: white;
     border-radius: 24px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0,0,0,0.05);
+    text-decoration: none; /* Caso seja um link */
 }
 
 .Card:hover {
@@ -301,9 +302,11 @@
     box-shadow: var(--shadow-lg);
 }
 
+/* Container da Imagem e Badge */
 .card-image {
     position: relative;
     height: 200px;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -311,164 +314,85 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
 }
 
-.Card:hover .card-image img {
-    transform: scale(1.05);
-}
-
-.card-overlay {
+.categoria-badge {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60%;
-    background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.Card:hover .card-overlay {
-    opacity: 1;
-}
-
-.card-content {
-    padding: 20px;
-}
-
-.card-category {
-    font-size: 12px;
+    top: 15px;
+    left: 15px;
+    background: var(--white-alpha);
+    backdrop-filter: blur(8px);
     color: var(--primary-green);
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.card-content h3 {
-    font-size: 18px;
-    font-weight: 700;
-    color: #1a202c;
-    margin-bottom: 8px;
-}
-
-.card-content p {
-    font-size: 13px;
-    color: #4a5568;
-    line-height: 1.5;
-    margin-bottom: 12px;
-}
-
-.card-stats {
-    display: flex;
-    gap: 16px;
+    padding: 6px 14px;
+    border-radius: 100px;
     font-size: 12px;
-    color: #a0aec0;
-}
-
-.card-stats span {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-/* SESSÃO 04 - FEED */
-.Sessao04 {
-    width: 100%;
-    background: white;
-    padding: 80px 24px;
-}
-
-.feed-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
-    margin-top: 24px;
-}
-
-.feed-card {
-    background: #f7fafc;
-    border-radius: 24px;
-    padding: 24px;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    z-index: 10;
     box-shadow: var(--shadow-sm);
 }
 
-.feed-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-    background: white;
-}
-
-.feed-user {
+/* Corpo do texto do Card */
+.card-content {
+    padding: 20px;
     display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.user-avatar {
-    width: 48px;
-    height: 48px;
-    background: var(--primary-green);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 18px;
-    color: white;
+.card-content h3 {
+    font-size: 20px;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    font-weight: 800;
 }
 
-.user-info h4 {
-    font-size: 16px;
-    font-weight: 700;
-    color: #1a202c;
-    margin-bottom: 4px;
-}
-
-.user-info span {
-    font-size: 12px;
-    color: #a0aec0;
-}
-
-.feed-content {
+.card-content p {
+    font-size: 14px;
     color: #4a5568;
-    line-height: 1.6;
+    line-height: 1.5;
     margin-bottom: 20px;
-    font-size: 14px;
+    flex-grow: 1;
 }
 
-.feed-actions {
+/* Rodapé do Card (Likes e Botão) */
+.card-footer {
     display: flex;
-    gap: 20px;
-    padding-top: 16px;
-    border-top: 1px solid #e2e8f0;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #f1f5f9;
 }
 
-.feed-like, .feed-comment {
-    background: none;
-    border: none;
-    cursor: pointer;
+.card-footer span {
     font-size: 14px;
-    color: #a0aec0;
+    font-weight: 600;
+    color: #718096;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-ver-mais {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-teal));
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
     transition: all 0.3s ease;
-    padding: 4px 8px;
-    border-radius: 8px;
 }
 
-.feed-like:hover {
-    color: #e53e3e;
-    background: rgba(229, 62, 62, 0.05);
+.btn-ver-mais:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(6, 158, 110, 0.2);
 }
 
-.feed-comment:hover {
-    color: var(--primary-green);
-    background: rgba(6, 158, 110, 0.05);
-}
-
-/* ANIMAÇÕES */
+/* ==========================================================================
+   6. ANIMAÇÕES DE ENTRADA
+   ========================================================================== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -489,89 +413,29 @@
 .Sessao03 { animation-delay: 0.2s; }
 .Sessao04 { animation-delay: 0.3s; }
 
-/* RESPONSIVIDADE */
+/* ==========================================================================
+   7. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
 @media (max-width: 968px) {
-    .Titulo {
-        font-size: 48px;
-    }
-
-    .Frase {
-        font-size: 36px;
-    }
-
-    .section-header h2 {
-        font-size: 32px;
-    }
-
-    .hero-image {
-        max-width: 90%;
-    }
+    .Titulo { font-size: 48px; }
+    .Frase { font-size: 36px; }
+    .section-header h2 { font-size: 32px; }
 }
 
 @media (max-width: 768px) {
-    .Sessao01 {
-        padding: 40px 20px;
-        gap: 32px;
-    }
-
-    .Titulo {
-        font-size: 36px;
-    }
-
-    .hero-description {
-        font-size: 16px;
-    }
-
-    .Frase {
-        font-size: 28px;
-    }
-
-    .quote-icon {
-        font-size: 60px;
-    }
-
-    .Sessao02, .Sessao03, .Sessao04 {
-        padding: 60px 20px;
-    }
-
-    .feed-grid {
-        grid-template-columns: 1fr;
-    }
+    .Sessao01 { padding: 40px 20px; gap: 32px; }
+    .Titulo { font-size: 36px; }
+    .hero-description { font-size: 16px; }
+    .Frase { font-size: 28px; }
+    .quote-icon { font-size: 60px; }
+    .Sessao02, .Sessao03, .Sessao04 { padding: 60px 20px; }
 }
 
 @media (max-width: 480px) {
-    .Sessao01 {
-        padding: 32px 16px;
-        gap: 24px;
-    }
-
-    .Titulo {
-        font-size: 28px;
-        letter-spacing: -0.5px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .btn-primary, .btn-secondary {
-        width: 100%;
-    }
-
-    .Frase {
-        font-size: 24px;
-    }
-
-    .section-header h2 {
-        font-size: 28px;
-    }
-
-    .Card {
-        min-width: 260px;
-    }
-
-    .Sessao02, .Sessao03, .Sessao04 {
-        padding: 40px 16px;
-    }
+    .Sessao01 { padding: 32px 16px; gap: 24px; }
+    .Titulo { font-size: 28px; letter-spacing: -0.5px; }
+    .hero-buttons { flex-direction: column; gap: 12px; }
+    .btn-primary, .btn-secondary { width: 100%; }
+    .section-header h2 { font-size: 28px; }
+    .Card { min-width: 260px; }
 }

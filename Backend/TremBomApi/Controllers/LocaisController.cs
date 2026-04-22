@@ -1,8 +1,7 @@
-/*
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using TremBomApi.Data;
 using TremBomApi.Models;
-using TremBomApi.Services;
 
 namespace TremBomApi.Controllers
 {
@@ -10,54 +9,15 @@ namespace TremBomApi.Controllers
     [Route("api/[controller]")]
     public class LocaisController : ControllerBase
     {
-        private readonly IPublicacaoService _publicacaoService;
+        private readonly AppDbContext _context;
+        // Injeta o Banco de dados
+        public LocaisController(AppDbContext context) { _context = context;}
 
-        public LocaisController(IPublicacaoService publicacaoService)
-        {
-            _publicacaoService = publicacaoService;
-        }
-
-        /// <summary>
-        /// Lista todos os locais para o carrossel
-        /// IDs: carrossel-locais, card-local-{id}, local-imagem-{id}, 
-        /// local-nome-{id}, local-categoria-{id}, local-descricao-{id}, local-likes-{id}
-        /// </summary>
         [HttpGet]
-        [AllowAnonymous]
-        public async Task<IActionResult> GetLocais()
+        public async Task<IActionResult> ListarTodos()
         {
-            var resultado = await _publicacaoService.GetLocaisAsync();
-            return Ok(resultado);
-        }
-
-        /// <summary>
-        /// Obtém um local específico
-        /// </summary>
-        [HttpGet("{id}")]
-        [AllowAnonymous]
-        public async Task<IActionResult> GetLocal(int id)
-        {
-            var resultado = await _publicacaoService.GetLocalByIdAsync(id);
-            
-            if (!resultado.Sucesso)
-                return NotFound(resultado);
-            
-            return Ok(resultado);
-        }
-
-        /// <summary>
-        /// Cria um novo local (Admin)
-        /// </summary>
-        [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> CriarLocal([FromBody] Local local)
-        {
-            var resultado = await _publicacaoService.CriarLocalAsync(local);
-            
-            if (!resultado.Sucesso)
-                return BadRequest(resultado);
-            
-            return Ok(resultado);
+            var locais = await _context.Locais.ToListAsync();
+            return Ok(locais);
         }
     }
-}*/
+}

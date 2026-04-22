@@ -40,6 +40,9 @@ namespace TremBomApi.Models
         [Column("ativo")]
         public bool Ativo { get; set; } = true;
 
+        
+
+
         // Relacionamentos
         public virtual ICollection<Publicacao> Publicacoes { get; set; } = new List<Publicacao>();
     }

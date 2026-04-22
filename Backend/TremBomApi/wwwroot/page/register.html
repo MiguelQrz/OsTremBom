@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Os Trem de BH</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="manifest" href="../img/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/estiloregister.css">
-    <link rel="stylesheet" href="/css/estilologin.css">
-    <link rel="stylesheet" href="/css/estilopage.css">
+    <link rel="stylesheet" href="../css/estiloregister.css">
+    <link rel="stylesheet" href="../css/estilologin.css">
+    <link rel="stylesheet" href="../css/estilopage.css">
 </head>
 <body>
     <div class="register-box">
-        <button class="btn-voltar" onclick="window.location.href='/index'">&lt;</button>
-        <img src="/img/android-chrome-192x192.png" id="logo" alt="OS TREM DE BH - Logo" class="logo-register">
+        <button class="btn-voltar" onclick="window.location.href='../index'">&lt;</button>
+        <img src="../img/android-chrome-192x192.png" id="logo" alt="OS TREM DE BH - Logo" class="logo-register">
         <h2>Criar Nova Conta</h2>
         <p id="subtitulo-p">Crie uma conta e comece a se <span class="teal">conectar</span> e <span class="teal">compartilhar</span> suas experiências, fotos e avaliações hoje mesmo!</p>
         <p id="error"></p>
@@ -67,58 +67,9 @@
             <p id="subtitulo-p">Ao tocar em Registrar, você concorda em criar uma conta e com os <span class="teal">Termos</span> do Os Trem de BH, a <span class="teal"> Política de Privacidade</span> e a <span class="teal">Política de Cookies.</span>
             A Política de Privacidade descreve as formas como podemos usar as informações que coletamos quando você cria uma conta. 
             Por exemplo, usamos essas informações para fornecer, personalizar e melhorar nossos produtos, incluindo anúncios.</p>
-            <button class="btn-login" id="btn-register" type="submit">Registrar</button>
+            <button class="btn-login" id="btn-register">Registrar</button>
         </form>
     </div>
-    <script src="/script/register.js"></script>
-    <script>
-        // Preencher o campo de dia com opções de 1 a 31 e anos (No registro)
-            document.addEventListener("DOMContentLoaded", () => {
-            const day = document.getElementById("day");
-            const month = document.getElementById("month");
-            const year = document.getElementById("year");
-
-            if (!day || !month || !year) {
-                console.error("IDs não encontrados");
-                return;
-            }
-
-          
-            const currentYear = new Date().getFullYear();
-
-            for (let i = currentYear; i >= 1900; i--) {
-                const opt = document.createElement("option");
-                opt.value = i;
-                opt.textContent = i;
-                year.appendChild(opt);
-            }
-
-            function updateDays() {
-                const m = parseInt(month.value);
-                const y = parseInt(year.value);
-
-                // se der erro ao converter para número, não tenta atualizar os dias
-                if (!m || !y) return;
-
-                const daysInMonth = new Date(y, m, 0).getDate();
-
-                day.innerHTML = "";
-
-                for (let i = 1; i <= daysInMonth; i++) {
-                const opt = document.createElement("option");
-                opt.value = i;
-                opt.textContent = i;
-                day.appendChild(opt);
-                }
-            }
-
-            month.addEventListener("change", updateDays);
-            year.addEventListener("change", updateDays);
-
-            // O processo só começa quando o ano existe
-            updateDays();
-
-            });
-    </script>
+    <script src="../script/register.js"></script>
 </body>
 </html>

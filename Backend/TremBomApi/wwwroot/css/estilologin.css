@@ -47,17 +47,12 @@ body {
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .teal {
-    color: var(--primary-green);
+    color: var(--primary-teal);
 }
 #titulo-login {
     font-size: 24px;
     margin-bottom: 14px;
     text-align: left;
-}
-button:disabled {
-  opacity: 0.5;
-  background-color: grey;
-  cursor: not-allowed;
 }
 .btn-login {
   margin-top: 14px;
@@ -82,7 +77,7 @@ button:disabled {
 }
 
 .input:focus {
-  border-color: var(--primary-green);
+  border-color: var(--primary-teal);
   box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.15);
 }
 
